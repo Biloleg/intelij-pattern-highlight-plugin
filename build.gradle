@@ -1,10 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '1.17.4'
+    id 'org.jetbrains.intellij.platform' version '2.1.0'
 }
 
 group = 'oleh.bilyk'
-version = '1.0'
+version = '1.1'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -13,36 +13,39 @@ java {
 
 repositories {
     mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
-// Configure Gradle IntelliJ Plugin
-intellij {
-    version = '2024.3'
-    type = 'IC' // IntelliJ IDEA Community Edition
-    plugins = ['java']
+dependencies {
+    intellijPlatform {
+        intellijIdeaCommunity('2024.3')
+        bundledPlugin('com.intellij.java')
+        instrumentationTools()
+    }
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks {
-    patchPluginXml {
-        sinceBuild = '232'
-        untilBuild = '270.*'
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            sinceBuild = '232'
+            untilBuild = '270.*'
+        }
     }
 
-    signPlugin {
+    signing {
         certificateChain = ''
         privateKey = ''
         password = ''
     }
 
-    publishPlugin {
+    publishing {
         token = ''
     }
-}
-
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
