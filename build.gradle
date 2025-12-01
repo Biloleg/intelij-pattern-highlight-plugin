@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.17.4'
+}
+
+group = 'oleh.bilyk'
+version = '1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Configure Gradle IntelliJ Plugin
+intellij {
+    version = '2024.3'
+    type = 'IC' // IntelliJ IDEA Community Edition
+    plugins = ['java']
+}
+
+tasks {
+    patchPluginXml {
+        sinceBuild = '232'
+        untilBuild = '270.*'
+    }
+
+    signPlugin {
+        certificateChain = ''
+        privateKey = ''
+        password = ''
+    }
+
+    publishPlugin {
+        token = ''
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}

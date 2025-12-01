@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>oleh.bilyk.varhighlight</id>
+    <name>Template Pattern Highlighter</name>
+    <vendor email="support@epam.com" url="https://www.epam.com">EPAM</vendor>
+
+    <description><![CDATA[
+    Highlights text matching the pattern {{.*}} in Java string literals and comments.
+    This plugin makes it easy to spot template variables in your code by applying custom color highlighting.
+    You can customize the highlight color in Settings > Editor > Color Scheme > Template Pattern Highlighter.
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Register the annotator for Java files -->
+        <annotator language="JAVA" implementationClass="oleh.bilyk.varhighlight.TemplatePatternAnnotator"/>
+
+        <!-- Register the color settings page -->
+        <colorSettingsPage implementation="oleh.bilyk.varhighlight.TemplateColorSettingsPage"/>
+    </extensions>
+</idea-plugin>
+
