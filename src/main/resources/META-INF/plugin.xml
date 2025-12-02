@@ -19,6 +19,9 @@
 
         <!-- Register the color settings page -->
         <colorSettingsPage implementation="oleh.bilyk.varhighlight.TemplateColorSettingsPage"/>
+
+        <!-- Register reference contributor for navigation -->
+        <psi.referenceContributor language="JAVA" implementation="oleh.bilyk.varhighlight.TemplateFieldReferenceContributor"/>
     </extensions>
 </idea-plugin>
 

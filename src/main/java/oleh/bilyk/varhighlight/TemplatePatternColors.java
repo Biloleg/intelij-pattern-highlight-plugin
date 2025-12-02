@@ -7,7 +7,7 @@ public final class TemplatePatternColors {
     public static final TextAttributesKey TEMPLATE_PATTERN =
         TextAttributesKey.createTextAttributesKey(
             "TEMPLATE_PATTERN",
-            DefaultLanguageHighlighterColors.KEYWORD
+            DefaultLanguageHighlighterColors.LOCAL_VARIABLE
         );
 
     private TemplatePatternColors() {}
