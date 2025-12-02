@@ -54,14 +54,11 @@ The text `{{name}}`, `{{place}}`, and `{{count}}` will be highlighted with your 
 ## Development
 
 ### Project Structure
-- `src/main/java/com/epam/varhighlight/TemplatePatternAnnotator.java` - Main annotator that detects and highlights the pattern
-- `src/main/java/com/epam/varhighlight/TemplateColorSettingsPage.java` - Color settings configuration page
+- `src/main/java/oleh/bilyk/varhighlight/TemplatePatternAnnotator.java` - Main annotator that detects and highlights the pattern
+- `src/main/java/oleh/bilyk/varhighlight/TemplateColorSettingsPage.java` - Color settings configuration page
 - `src/main/resources/META-INF/plugin.xml` - Plugin configuration
 
 ### Pattern Details
 The plugin uses the regex pattern `\{\{.*?\}\}` to match any text enclosed in double curly braces.
 
-## License
-
-Copyright © 2025 EPAM
 
