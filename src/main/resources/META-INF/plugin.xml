@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>oleh.bilyk.varhighlight</id>
     <name>Template Pattern Highlighter</name>
-    <vendor email="support@epam.com" url="https://www.epam.com">EPAM</vendor>
+    <vendor email="biloleg@gmail.com" url="">Oleh Bilyk</vendor>
 
     <description><![CDATA[
     Highlights text matching the pattern {{.*}} in Java string literals and comments.
